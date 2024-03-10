@@ -1,0 +1,13 @@
+@import "assets/styles/fonts/fonts.css";
+
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #585E74;
+}
+
+code {
+    font-family: Roboto, sans-serif;
+}

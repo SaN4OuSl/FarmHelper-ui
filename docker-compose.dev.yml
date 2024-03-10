@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+
+  react:
+    restart: always
+    build: .
+    container_name: react
+    ports:
+      - "3000:3000"
+    networks:
+      - TechRadar-network
+
+networks:
+  TechRadar-network:
+    external: true

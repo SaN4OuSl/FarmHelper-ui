@@ -1,0 +1,432 @@
+.main {
+    background: #F4F8FF;
+    width: 85%;
+    overflow-x: hidden;
+}
+
+.btn__table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 7px;
+    min-width: 38px;
+    min-height: 38px;
+    border: 1px solid transparent;
+    padding: 10px 16px;
+    outline: none;
+    background: #E7EFFF;
+}
+
+.search__btn {
+    cursor: pointer;
+}
+
+table tr:nth-child(even) {
+    background-color: #F4F8FF;
+    border-top: 1px solid #DBDFEC;
+    border-bottom: 1px solid #DBDFEC;
+}
+
+tr.MuiTableRow-root {
+    border-top: 1px solid #DBDFEC;
+    color: #585E74 !important;
+    font-size: 15px !important;
+    line-height: 19px !important;
+    font-weight: 400 !important;
+}
+
+.MuiButton-textPrimary {
+    color: #4B96FE !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    line-height: 19px !important;
+    text-decoration: underline !important;
+    text-transform: none !important;
+}
+
+.MuiButton-text {
+    padding: 6px 1px !important;
+}
+
+.MuiInputBase-input {
+    height: 0.1876em !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: #DBDFEC !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #A8AEC5 !important;
+}
+
+.MuiIconButton-root:hover {
+    background-color: #E0E8F8 !important;
+}
+
+.MuiTableHead-root {
+    background-color: #FBFCFE !important;
+    white-space: pre-line !important;
+    word-wrap: break-word;
+}
+
+.MuiAccordion-root {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.MuiBackdrop-root {
+    background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.btn__delete {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    background: #FFECEC;
+}
+
+.btn__settings {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    background: #E7EFFF;
+}
+
+.btn__edit {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    background: #E7EFFF;
+}
+
+.table__btn {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.btn__cancel {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    background: #E7EFFF;
+    border-radius: 7px;
+    color: #4B6C99;
+    border: none;
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+.btn__save {
+    padding: 10px 24px;
+    background: #4B96FE;
+    border-radius: 7px;
+    border: none;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.question__mark {
+    font-size: 17px !important;
+    color: #a4c7fd;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    vertical-align: middle;
+}
+
+.btn__approve {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    background: #C4FFE4C7;
+}
+
+a {
+    text-decoration: underline;
+    color: #4B96FE;
+    cursor: pointer;
+}
+
+.css-14el2xx-placeholder {
+    color: #A8AEC5 !important;
+}
+
+.css-1s2u09g-control {
+    border-color: #DBDFEC !important;
+    cursor: pointer !important;
+    flex-wrap: nowrap !important;
+}
+
+.css-1s2u09g-control:hover {
+    border-color: #A8AEC5 !important;
+}
+
+.css-tlfecz-indicatorContainer {
+    color: #A8AEC5 !important;
+    border: 1px solid transparent !important;
+}
+
+.css-1gtu0rj-indicatorContainer {
+    border-color: #A8AEC5 !important;
+    color: #A8AEC5 !important;
+}
+
+.css-1pahdxg-control {
+    border-color: #DBDFEC !important;
+    box-shadow: 0 0 0 1px #DBDFEC !important;
+    flex-wrap: nowrap !important;
+}
+
+.css-1pahdxg-control:hover {
+    border-color: #DBDFEC !important;
+    box-shadow: 0 0 0 1px #DBDFEC !important;
+}
+
+.css-levciy-MuiTablePagination-displayedRows {
+    color: #585E74;
+}
+
+.css-1sn4lm3-MuiTypography-root {
+    color: #585E74;
+}
+
+.MuiInputBase-input {
+    color: #585E74 !important;
+}
+
+.MuiInput-underline:before {
+    bottom: -4px !important;
+    border-bottom: 2px solid #DBDFEC !important;
+}
+
+.MuiInput-underline:after {
+    bottom: -4px !important;
+    border-bottom: 2px solid #DBDFEC !important;
+}
+
+.css-zylse7-MuiButtonBase-root-MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0) !important;
+}
+
+.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
+    padding-left: 10px !important;;
+}
+
+.box {
+    max-width: 100%;
+}
+
+.css-1sn4lm3-MuiTypography-root {
+    font-weight: 400 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.43 !important;
+    letter-spacing: 0.01071em !important;
+}
+
+.css-1nrlq1o-MuiFormControl-root {
+    width: 100% !important;
+    background-color: #FFFFFF;
+}
+
+.css-13sljp9 {
+    width: 100% !important;
+    background-color: #FFFFFF;
+}
+
+td > div {
+    border-bottom: none !important;
+}
+
+td:nth-child(2) > div {
+    width: 100% !important;
+}
+
+td:nth-child(4) > div {
+    width: min-content !important;
+}
+
+.css-7wvc1d-MuiTableCell-root {
+    font-weight: 400 !important;
+    color: #585E74 !important;
+    background-color: #FBFCFE !important;
+}
+
+td:last-child > div {
+    padding: 0 5px 0 0 !important;
+}
+
+p {
+    margin-block-end: 0em !important;
+    margin-block-start: 0em !important;
+}
+
+.css-1rhbuit-multiValue {
+    background-color: #F4F8FF !important;
+}
+
+.css-tlfecz-indicatorContainer:hover {
+    color: #585E74 !important;
+}
+
+.css-hbzb1i-MuiTableCell-root-MuiTablePagination-root {
+    border-bottom: none !important;
+}
+
+.css-1d1r5q-MuiFormHelperText-root.Mui-error {
+    padding-top: 5px !important;
+}
+
+.css-1deacqj.Mui-disabled {
+    color: rgba(0, 0, 0, 0) !important;
+}
+
+.css-1v2gfp5, .css-1chpzqh {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #585E74 !important;
+}
+
+.css-j7o63n.Mui-error {
+    padding-top: 5px !important;
+}
+
+.users td:nth-child(3) > div {
+    width: 100% !important;
+}
+
+.tech td:nth-child(3) > div {
+    width: 100% !important;
+}
+
+.tech td:nth-child(4) > div {
+    width: 100% !important;
+}
+
+.jss1.plus{
+    position: relative !important;
+}
+
+.save__tags, .save__inner {
+    align-self: flex-end !important;
+    background: #E7EFFF !important;
+    border-radius: 7px !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    line-height: 19px !important;
+    color: #4B6C99 !important;
+    padding: 10px 24px !important;
+    margin-top: 20px !important;
+    text-transform: capitalize !important;
+}
+
+.save__tags:hover, .save__inner:hover {
+    background-color: #DBE3F3 !important;
+}
+
+.cancel__tags {
+    align-self: flex-end !important;
+    background: #FFECEC !important;
+    border-radius: 7px !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    line-height: 19px !important;
+    color: #994b75 !important;
+    padding: 10px 24px !important;
+    margin-top: 20px !important;
+    text-transform: capitalize !important;
+}
+
+.cancel__tags:hover {
+    background-color: #f3dbe7 !important;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.css-heg063-MuiTabs-flexContainer {
+    margin-top: 10px !important;
+    padding-left: 10px !important;
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-disabled {
+    text-transform: capitalize !important;
+}
+
+.title__tag {
+    padding-bottom: 5px !important;
+}
+
+.containerTypography {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+}
+
+.text__modal {
+    color: #585E74;
+    padding: 0 5px 0 5px;
+}
+
+.import__file {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-width: 2px;
+    border-radius: 10px !important;
+    border-color: #eeeeee;
+    border-style: dashed;
+    background-color: #fafafa !important;
+    color: #bdbdbd !important;
+    outline: none;
+    transition: border .24s ease-in-out !important;
+}
+
+.MuiPaper-elevation1 {
+    box-shadow: none !important;
+}
+
+.markdown-output {
+    color: #585E74;
+}
+
+.markdown-output h1 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.markdown-output h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.markdown-output h3 {
+    font-size: 14px;
+    font-weight: 410;
+}
+
+.markdown-output li {
+    font-size: 14px;
+    font-weight: 400;
+}

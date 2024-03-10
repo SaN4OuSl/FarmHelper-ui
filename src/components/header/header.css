@@ -1,0 +1,57 @@
+.header {
+    grid-area: h;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(0, 43, 159, 0.04);
+    width: 100%;
+    height: 64px;
+}
+
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 50px;
+}
+
+.logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    width: 158px;
+    height: 32px;
+}
+
+.name__admin {
+    color: #585E74;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    width: 110px;
+    height: 19px;
+    text-align: right;
+}
+.btn__logout{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    gap: 10px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #DBDFEC;
+    border-radius: 7px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    cursor: pointer;
+}
+.btn__logout:hover{
+    border: 1px solid #A8AEC5;
+    box-shadow: 0 0 0 1px #DBDFEC ;
+}
