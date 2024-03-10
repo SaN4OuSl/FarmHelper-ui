@@ -6,7 +6,7 @@ import { writeOffAmountOfHarvest } from '../../../../service/HarvestService';
 import errorContext from '../../../error/ErrorContext';
 
 // eslint-disable-next-line react/prop-types
-const WriteOffHarvest = ({ isDialogOpened, harvestId, handleClose }) => {
+const WriteOffHarvest = ({ isDialogOpened, harvestId, harvestName, handleClose }) => {
   const [writeOffAmount, setWriteOffAmount] = useState(undefined);
   const [writeOffExplanation, setWriteOffExplanation] = useState('');
   const [error, setError] = useContext(errorContext);
@@ -85,7 +85,7 @@ const WriteOffHarvest = ({ isDialogOpened, harvestId, handleClose }) => {
               fontWeight: '400',
               lineHeight: '20px'
             }}>
-            Write off harvest
+            Write off harvest, {harvestName}
           </Typography>
         </FormLabel>
         <TextField

@@ -30,6 +30,7 @@ const HarvestsPage = () => {
   const [openWriteOff, setOpenWriteOff] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   const [currentHarvestId, setCurrentHarvestId] = useState(undefined);
+  const [currentHarvestName, setCurrentHarvestName] = useState(undefined);
   const [isImportDialogOpen, setIsImportDialogOpen] = useState(false);
   const [isImportSuccessful, setIsImportSuccessful] = useState(false);
 
@@ -217,11 +218,13 @@ const HarvestsPage = () => {
   const handleOpenWriteOff = (rowData) => {
     setOpenWriteOff(true);
     setCurrentHarvestId(rowData.id);
+    setCurrentHarvestName(rowData.cropName + ' ' + rowData.monthAndYearOfCollection);
   };
 
   const handleOpenAdd = (rowData) => {
     setOpenAdd(true);
     setCurrentHarvestId(rowData.id);
+    setCurrentHarvestName(rowData.cropName + ' ' + rowData.monthAndYearOfCollection);
   };
 
   const handleCloseAdd = () => {
@@ -250,10 +253,12 @@ const HarvestsPage = () => {
       <WriteOffHarvest
         isDialogOpened={openWriteOff}
         harvestId={currentHarvestId}
+        harvestName={currentHarvestName}
         handleClose={handleCloseWriteOff}></WriteOffHarvest>
       <AddHarvest
         isDialogOpened={openAdd}
         harvestId={currentHarvestId}
+        harvestName={currentHarvestName}
         handleClose={handleCloseAdd}
         loadFieldsOptions={loadFieldsOptions}></AddHarvest>
       <HarvestsFileUploader

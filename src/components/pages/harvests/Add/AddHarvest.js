@@ -7,7 +7,7 @@ import AsyncSelect from 'react-select/async';
 import { addAmountToExistedHarvest } from '../../../../service/HarvestService';
 
 // eslint-disable-next-line react/prop-types
-const AddHarvest = ({ isDialogOpened, harvestId, handleClose, loadFieldsOptions }) => {
+const AddHarvest = ({ isDialogOpened, harvestId, harvestName, handleClose, loadFieldsOptions }) => {
   const [addAmount, setAddAmount] = useState(undefined);
   const [fields, setFields] = useState([]);
   const [error, setError] = useContext(errorContext);
@@ -76,7 +76,7 @@ const AddHarvest = ({ isDialogOpened, harvestId, handleClose, loadFieldsOptions 
               fontWeight: '400',
               lineHeight: '20px'
             }}>
-            Write off harvest
+            Add amount to harvest, {harvestName}
           </Typography>
         </FormLabel>
         <TextField
