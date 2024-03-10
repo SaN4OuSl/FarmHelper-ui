@@ -10,8 +10,6 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import SalesIcon from '@material-ui/icons/MonetizationOn';
 import ExportTransactionsDialog from './ExportTransactions/ExportTransactionsDialog';
-import { getRole } from '../../../security/Keycloak';
-import { UserRoles } from '../../../models/UserRoles';
 import ExportBtn from '../../Buttons/Export/ExportBtn';
 
 const TransactionPage = () => {
@@ -172,7 +170,6 @@ const TransactionPage = () => {
           }}
           actions={[
             {
-              hidden: getRole() !== UserRoles.ACCOUNTANT,
               icon: () => <ExportBtn />,
               onClick: () => handleOpenExportDialog(),
               tooltip: 'Export transaction to an .xlsx file',
