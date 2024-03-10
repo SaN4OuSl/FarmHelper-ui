@@ -12,7 +12,6 @@ import {
   updateInvoice
 } from '../../../service/InvoiceService';
 import { getAllHarvests } from '../../../service/HarvestService';
-import { MenuItem, Select } from '@material-ui/core';
 import Add from '../../Buttons/AddBtn/Add';
 import CloseBtn from '../../Buttons/Close/CloseBtn';
 import SaveBtn from '../../Buttons/Save/SaveBtn';
@@ -26,6 +25,8 @@ import InputIcon from '@material-ui/icons/Input';
 import ApproveBtn from '../../Buttons/Approve/ApproveBtn';
 import InvoicesFileUploader from './FileUploader/InvoicesFileUploader';
 import ImportBtn from '../../Buttons/Import/ImportBtn';
+import { Autocomplete } from '@mui/lab';
+import { TextField } from '@material-ui/core';
 
 const InvoicesPage = () => {
   const classes = useStyles();
@@ -84,14 +85,20 @@ const InvoicesPage = () => {
       title: 'Harvest info',
       field: 'harvestInfo',
       editable: 'onAdd',
+      width: '25%',
       editComponent: ({ value, onChange }) => (
-        <Select value={value} onChange={(e) => onChange(e.target.value)} style={{ width: '100%' }}>
-          {harvests.map((harvest) => (
-            <MenuItem key={harvest.value} value={harvest.value}>
-              {harvest.label}
-            </MenuItem>
-          ))}
-        </Select>
+        <Autocomplete
+          value={harvests.find((harvest) => harvest.value === value)}
+          onChange={(event, newValue) => {
+            onChange(newValue ? newValue.value : null);
+          }}
+          options={harvests}
+          getOptionLabel={(option) => option.label || ''}
+          style={{ width: '100%' }}
+          renderInput={(params) => (
+            <TextField {...params} label="Select harvest" variant="outlined" fullWidth />
+          )}
+        />
       )
     },
     {
