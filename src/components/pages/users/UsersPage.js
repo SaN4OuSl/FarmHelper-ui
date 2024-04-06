@@ -180,6 +180,7 @@ const UsersPage = () => {
             borderRadius: '8px'
           }}
           editable={{
+            isDeleteHidden: (rowData) => rowData.role === UserRoles.ADMIN,
             onRowAdd: (data) =>
               assignRoleToUser(data.username.value, data.role, setError).then(initUsers),
             onRowDelete: (data) => deactivateUser(data.username, setError).then(initUsers)
