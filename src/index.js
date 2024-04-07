@@ -10,7 +10,7 @@ console.log('Version: v' + packageJson.version);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/farmhelper-ui">
     <App />
   </BrowserRouter>
 );

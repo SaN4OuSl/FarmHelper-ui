@@ -2,7 +2,7 @@ import GoBackButton from '../Buttons/GoBackButton/GoBackButton';
 
 const PageNotFound = () => {
   const onMouseClick = () => {
-    window.location.href = '/';
+    window.location.href = '/farmhelper-ui';
   };
 
   return (
