@@ -33,10 +33,7 @@ function App() {
   }
 
   const keycloakEventHandler = (event) => {
-    if (event === 'onAuthSuccess' && loading) {
-      checkRoles();
-    }
-    if (event === 'onAuthRefreshSuccess' && loading) {
+    if (event === 'onAuthSuccess' || event === 'onAuthRefreshSuccess') {
       checkRoles();
     }
     if (event === 'onAuthError' || event === 'onAuthRefreshError') {
