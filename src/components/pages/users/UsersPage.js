@@ -8,7 +8,7 @@ import CloseBtn from '../../Buttons/Close/CloseBtn';
 import DeleteBtn from '../../Buttons/Delete/DeleteBtn';
 import Title from '../../../assets/styles/constants/Title';
 import ErrorContext from '../../error/ErrorContext';
-import { search_box, useStyles } from '../styles/Styles';
+import { search_box } from '../styles/Styles';
 import AsyncSelect from 'react-select/async';
 import { MenuItem, Select } from '@material-ui/core';
 import { UserRoles } from '../../../models/UserRoles';
@@ -20,7 +20,6 @@ import {
 } from '../../../service/UserService';
 
 const UsersPage = () => {
-  const classes = useStyles();
   const [users, setUsers] = useState([]);
   const [error, setError] = useContext(ErrorContext);
   const [isLoading, setIsLoading] = useState(true);
@@ -134,7 +133,7 @@ const UsersPage = () => {
           <span style={{ whiteSpace: 'pre-line' }}>{error}</span>
         </Alert>
       </Collapse>
-      <div className={classes.root}>
+      <div>
         <MaterialTable
           title={<Title text="Users" />}
           columns={columns}

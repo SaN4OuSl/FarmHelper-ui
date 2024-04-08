@@ -1,4 +1,4 @@
-import { search_box, useStyles } from '../styles/Styles';
+import { search_box } from '../styles/Styles';
 import { useContext, useEffect, useState } from 'react';
 import ErrorContext from '../../error/ErrorContext';
 import { Alert, AlertTitle, Collapse } from '@mui/material';
@@ -14,7 +14,6 @@ import { parseCoordinatesToPoints } from '../../../utils/pointParser';
 import EditBtn from '../../Buttons/Edit/EditBtn';
 
 const FieldsPage = () => {
-  const classes = useStyles();
   const [fields, setFields] = useState([]);
   const [error, setError] = useContext(ErrorContext);
   const [isLoading, setIsLoading] = useState(true);
@@ -106,7 +105,7 @@ const FieldsPage = () => {
         handleClose={() => {
           handleCloseDialog();
         }}></ViewField>
-      <div className={classes.root}>
+      <div>
         <MaterialTable
           title={<Title text="Fields" />}
           icons={{

@@ -4,11 +4,9 @@ import { Box, FormLabel, TextField, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import errorContext from '../../../error/ErrorContext';
 import { exportCropsInYearFile } from '../../../../service/FileService';
-import { useStyles } from '../../styles/Styles';
 
 // eslint-disable-next-line react/prop-types
 const ExportCropsDialog = ({ isDialogOpened, handleClose }) => {
-  const classes = useStyles();
   const [year, setYear] = useState(undefined);
   const [error, setError] = useContext(errorContext);
   const [validationError, setValidationError] = useState('');
@@ -74,7 +72,6 @@ const ExportCropsDialog = ({ isDialogOpened, handleClose }) => {
           label="Select the harvest year"
           fullWidth
           InputProps={{
-            classes: { root: classes.inputRoot },
             inputProps: { min: 1900, max: new Date().getFullYear() }
           }}
           InputLabelProps={{

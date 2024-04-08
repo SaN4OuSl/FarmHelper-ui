@@ -3,7 +3,7 @@ import MaterialTable from '@material-table/core';
 import { Alert, AlertTitle, Collapse } from '@mui/material';
 import Title from '../../../assets/styles/constants/Title';
 import ErrorContext from '../../error/ErrorContext';
-import { search_box, useStyles } from '../styles/Styles';
+import { search_box } from '../styles/Styles';
 import { getAllTransactions } from '../../../service/TransactionService';
 import { TransactionTypes } from '../../../models/ActionTypes';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
@@ -13,7 +13,6 @@ import ExportTransactionsDialog from './ExportTransactions/ExportTransactionsDia
 import ExportBtn from '../../Buttons/Export/ExportBtn';
 
 const TransactionPage = () => {
-  const classes = useStyles();
   const [transactions, setTransactions] = useState([]);
   const [error, setError] = useContext(ErrorContext);
   const [isLoading, setIsLoading] = useState(true);
@@ -129,7 +128,7 @@ const TransactionPage = () => {
       <ExportTransactionsDialog
         isDialogOpened={isExportDialogOpen}
         handleClose={() => setIsExportDialogOpen(false)}></ExportTransactionsDialog>
-      <div className={classes.root}>
+      <div>
         <MaterialTable
           title={<Title text="Transactions" />}
           columns={columns}

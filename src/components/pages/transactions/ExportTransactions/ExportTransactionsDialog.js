@@ -4,14 +4,12 @@ import { Box, FormLabel, MenuItem, Select, TextField, Typography } from '@materi
 import Button from '@material-ui/core/Button';
 import errorContext from '../../../error/ErrorContext';
 import { exportTransactionsToFile } from '../../../../service/FileService';
-import { useStyles } from '../../styles/Styles';
 import { TransactionTypes } from '../../../../models/ActionTypes';
 import { FormControl } from '@mui/base';
 import { InputLabel } from '@mui/material';
 
 // eslint-disable-next-line react/prop-types
 const ExportTransactionsDialog = ({ isDialogOpened, handleClose }) => {
-  const classes = useStyles();
   const [actionType, setActionType] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -92,9 +90,6 @@ const ExportTransactionsDialog = ({ isDialogOpened, handleClose }) => {
           variant="outlined"
           label="Select the start date"
           fullWidth
-          InputProps={{
-            classes: { root: classes.inputRoot }
-          }}
           InputLabelProps={{
             shrink: true
           }}
@@ -106,9 +101,6 @@ const ExportTransactionsDialog = ({ isDialogOpened, handleClose }) => {
           variant="outlined"
           label="Select the end date"
           fullWidth
-          InputProps={{
-            classes: { root: classes.inputRoot }
-          }}
           InputLabelProps={{
             shrink: true
           }}

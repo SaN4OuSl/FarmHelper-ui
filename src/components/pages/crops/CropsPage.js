@@ -1,4 +1,4 @@
-import { search_box, useStyles } from '../styles/Styles';
+import { search_box } from '../styles/Styles';
 import React, { useContext, useEffect, useState } from 'react';
 import ErrorContext from '../../error/ErrorContext';
 import { Alert, AlertTitle, Collapse } from '@mui/material';
@@ -18,7 +18,6 @@ import ExportBtn from '../../Buttons/Export/ExportBtn';
 import ExportCropsDialog from './ExportCrops/ExportCropsDialog';
 
 const CropsPage = () => {
-  const classes = useStyles();
   const [crops, setCrops] = useState([]);
   const [error, setError] = useContext(ErrorContext);
   const [isLoading, setIsLoading] = useState(true);
@@ -113,7 +112,7 @@ const CropsPage = () => {
       <ExportCropsDialog
         isDialogOpened={isExportDialogOpen}
         handleClose={() => setIsExportDialogOpen(false)}></ExportCropsDialog>
-      <div className={classes.root}>
+      <div>
         <MaterialTable
           title={<Title text="Crops" />}
           icons={{

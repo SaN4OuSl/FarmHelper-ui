@@ -6,7 +6,7 @@ import SaveBtn from '../../Buttons/Save/SaveBtn';
 import CloseBtn from '../../Buttons/Close/CloseBtn';
 import Title from '../../../assets/styles/constants/Title';
 import ErrorContext from '../../error/ErrorContext';
-import { search_box, useStyles } from '../styles/Styles';
+import { search_box } from '../styles/Styles';
 import AsyncSelect from 'react-select/async';
 import { getAllCrops } from '../../../service/CropService';
 import { createHarvest, getAllHarvests } from '../../../service/HarvestService';
@@ -21,7 +21,6 @@ import ImportBtn from '../../Buttons/Import/ImportBtn';
 import HarvestsFileUploader from './FileUploader/HarvestsFileUploader';
 
 const HarvestsPage = () => {
-  const classes = useStyles();
   const [harvests, setHarvests] = useState([]);
   const [crops, setCrops] = useState([]);
   const [fields, setFields] = useState([]);
@@ -98,7 +97,6 @@ const HarvestsPage = () => {
           onChange={(e) => onChange(e.target.value)}
           variant="outlined"
           fullWidth
-          InputProps={{ classes: { root: classes.inputRoot } }}
           InputLabelProps={{
             shrink: true
           }}
@@ -268,7 +266,7 @@ const HarvestsPage = () => {
         setLoading={setIsLoading}
         setIsImportSuccessful={setIsImportSuccessful}
       />
-      <div className={`tech ${classes.root} plus`}>
+      <div className={`tech plus`}>
         <MaterialTable
           title={<Title text="Harvests" />}
           icons={{

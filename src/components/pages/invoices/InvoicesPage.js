@@ -3,7 +3,7 @@ import MaterialTable from '@material-table/core';
 import { Alert, AlertTitle, Collapse } from '@mui/material';
 import Title from '../../../assets/styles/constants/Title';
 import ErrorContext from '../../error/ErrorContext';
-import { search_box, useStyles } from '../styles/Styles';
+import { search_box } from '../styles/Styles';
 import {
   createInvoice,
   deleteInvoice,
@@ -29,7 +29,6 @@ import { Autocomplete } from '@mui/lab';
 import { TextField } from '@material-ui/core';
 
 const InvoicesPage = () => {
-  const classes = useStyles();
   const [invoices, setInvoices] = useState([]);
   const [harvests, setHarvests] = useState([]);
   const [error, setError] = useContext(ErrorContext);
@@ -189,7 +188,7 @@ const InvoicesPage = () => {
         setLoading={setIsLoading}
         setIsImportSuccessful={setIsImportSuccessful}
       />
-      <div className={classes.root}>
+      <div>
         <MaterialTable
           title={<Title text="Invoices" />}
           icons={{
