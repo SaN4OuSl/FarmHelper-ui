@@ -18,17 +18,17 @@ import InvoicesPage from './components/pages/invoices/InvoicesPage';
 
 function App() {
   const [doesUserHaveRole, setDoesUserHaveRole] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isAppReady, setIsAppReady] = useState(false);
   const [error, setError] = useState('');
 
   function checkRoles() {
     getPrincipal()
       .then(() => {
         setDoesUserHaveRole(keycloak.principal.role !== '');
-        setLoading(false);
+        setIsAppReady(true);
       })
       .catch(() => {
-        setLoading(false);
+        setIsAppReady(true);
       });
   }
 
@@ -43,143 +43,149 @@ function App() {
   };
 
   return (
-    <>
-      <ReactKeycloakProvider
-        authClient={keycloak}
-        initOptions={{
-          checkLoginIframe: false,
-          onLoad: 'login-required'
-        }}
-        onEvent={keycloakEventHandler}>
-        {loading ? (
-          <Spinner
-            role="spinner"
-            animation="border"
-            style={{
-              display: 'block',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              marginTop: '20%'
-            }}
-          />
-        ) : (
-          <div className="App">
-            <ErrorContext.Provider value={[error, setError]}>
-              <Routes>
-                {doesUserHaveRole ? (
-                  <>
-                    <Route
-                      exact
-                      path="/"
-                      element={
-                        <PrivateRoute>
-                          <Layout></Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                    <Route
-                      exact
-                      path="/users"
-                      element={
-                        <PrivateRoute>
-                          <Layout>{getRole() === UserRoles.ADMIN ? <UsersPage /> : <></>}</Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                    <Route
-                      exact
-                      path="/fields"
-                      element={
-                        <PrivateRoute>
-                          <Layout>{getRole() === UserRoles.ADMIN ? <FieldsPage /> : <></>}</Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                    <Route
-                      exact
-                      path="/crops"
-                      element={
-                        <PrivateRoute>
-                          <Layout>
-                            {getRole() === UserRoles.STOREKEEPER ||
-                            getRole() === UserRoles.ACCOUNTANT ? (
-                              <CropsPage />
-                            ) : (
-                              <></>
-                            )}
-                          </Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                    <Route
-                      exact
-                      path="/harvests"
-                      element={
-                        <PrivateRoute>
-                          <Layout>
-                            {getRole() === UserRoles.STOREKEEPER ||
-                            getRole() === UserRoles.ACCOUNTANT ? (
-                              <HarvestsPage />
-                            ) : (
-                              <></>
-                            )}
-                          </Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                    <Route
-                      exact
-                      path="/invoices"
-                      element={
-                        <PrivateRoute>
-                          <Layout>
-                            {getRole() === UserRoles.STOREKEEPER ||
-                            getRole() === UserRoles.ACCOUNTANT ? (
-                              <InvoicesPage />
-                            ) : (
-                              <></>
-                            )}
-                          </Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                    <Route
-                      exact
-                      path="/transactions"
-                      element={
-                        <PrivateRoute>
-                          <Layout>
-                            {getRole() === UserRoles.STOREKEEPER ||
-                            getRole() === UserRoles.ACCOUNTANT ? (
-                              <TransactionPage />
-                            ) : (
-                              <></>
-                            )}
-                          </Layout>
-                        </PrivateRoute>
-                      }
-                    />
-                  </>
-                ) : (
+    <ReactKeycloakProvider
+      authClient={keycloak}
+      initOptions={{
+        checkLoginIframe: false,
+        onLoad: 'login-required',
+        redirectUri: window.location.origin + '/farmhelper-ui',
+        pkceMethod: 'S256',
+        useNonce: false
+      }}
+      onEvent={keycloakEventHandler}
+      onTokens={() => checkRoles()}>
+      {!isAppReady ? (
+        <Spinner
+          role="spinner"
+          animation="border"
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: '20%'
+          }}
+        />
+      ) : (
+        <div className="App">
+          <ErrorContext.Provider value={[error, setError]}>
+            <Routes>
+              {doesUserHaveRole ? (
+                <>
                   <Route
                     exact
                     path="/"
                     element={
                       <PrivateRoute>
+                        <Layout />
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/users"
+                    element={
+                      <PrivateRoute>
                         <Layout>
-                          <AccessDenied />
+                          {getRole() === UserRoles.ADMIN ? <UsersPage /> : <AccessDenied />}
                         </Layout>
                       </PrivateRoute>
                     }
                   />
-                )}
-                <Route path="*" element={<PageNotFound />} />
-              </Routes>
-            </ErrorContext.Provider>
-          </div>
-        )}
-      </ReactKeycloakProvider>
-    </>
+                  <Route
+                    exact
+                    path="/fields"
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          {getRole() === UserRoles.ADMIN ? <FieldsPage /> : <AccessDenied />}
+                        </Layout>
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/crops"
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          {getRole() === UserRoles.STOREKEEPER ||
+                          getRole() === UserRoles.ACCOUNTANT ? (
+                            <CropsPage />
+                          ) : (
+                            <AccessDenied />
+                          )}
+                        </Layout>
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/harvests"
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          {getRole() === UserRoles.STOREKEEPER ||
+                          getRole() === UserRoles.ACCOUNTANT ? (
+                            <HarvestsPage />
+                          ) : (
+                            <AccessDenied />
+                          )}
+                        </Layout>
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/invoices"
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          {getRole() === UserRoles.STOREKEEPER ||
+                          getRole() === UserRoles.ACCOUNTANT ? (
+                            <InvoicesPage />
+                          ) : (
+                            <AccessDenied />
+                          )}
+                        </Layout>
+                      </PrivateRoute>
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/transactions"
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          {getRole() === UserRoles.STOREKEEPER ||
+                          getRole() === UserRoles.ACCOUNTANT ? (
+                            <TransactionPage />
+                          ) : (
+                            <AccessDenied />
+                          )}
+                        </Layout>
+                      </PrivateRoute>
+                    }
+                  />
+                </>
+              ) : (
+                <Route
+                  exact
+                  path="/"
+                  element={
+                    <PrivateRoute>
+                      <Layout>
+                        <AccessDenied />
+                      </Layout>
+                    </PrivateRoute>
+                  }
+                />
+              )}
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </ErrorContext.Provider>
+        </div>
+      )}
+    </ReactKeycloakProvider>
   );
 }
 
